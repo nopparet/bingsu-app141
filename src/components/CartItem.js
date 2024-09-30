@@ -1,6 +1,7 @@
 // src/components/CartItem.js
 import React, { useContext } from "react";
 import { CartContext } from "../context/CartContext";
+import { XIcon } from '@heroicons/react/solid';
 
 const CartItem = ({ item }) => {
   const { removeFromCart, updateQuantity } = useContext(CartContext);
@@ -16,8 +17,9 @@ const CartItem = ({ item }) => {
       
       {/* รายละเอียดสินค้า */}
       <div className="flex-1">
-        <h4 className="font-semibold text-lg">{item.name}</h4>
-        <p className="text-gray-700">ราคา: ฿{item.price}</p>
+        <h4 className="font-semibold text-lg text-pink-700">{item.name}</h4>
+        <p className="text-pink-500">ราคา: ฿{item.price}</p>
+        <p className="text-pink-500">รวม: ฿{(item.price * item.quantity).toFixed(2)}</p>
         
         {/* ปุ่มเพิ่ม/ลดจำนวนสินค้า */}
         <div className="flex items-center mt-2">
@@ -25,16 +27,16 @@ const CartItem = ({ item }) => {
             onClick={() =>
               updateQuantity(item.id, item.quantity > 1 ? item.quantity - 1 : 1)
             }
-            className="px-3 py-1 bg-gray-200 rounded-l hover:bg-gray-300"
+            className="px-3 py-1 bg-pink-200 rounded-l hover:bg-pink-300 transition-colors duration-300"
           >
             -
           </button>
-          <span className="px-4 py-1 border-t border-b">
+          <span className="px-4 py-1 border-t border-b border-pink-200 text-pink-700">
             {item.quantity}
           </span>
           <button
             onClick={() => updateQuantity(item.id, item.quantity + 1)}
-            className="px-3 py-1 bg-gray-200 rounded-r hover:bg-gray-300"
+            className="px-3 py-1 bg-pink-200 rounded-r hover:bg-pink-300 transition-colors duration-300"
           >
             +
           </button>
@@ -44,10 +46,10 @@ const CartItem = ({ item }) => {
       {/* ปุ่มลบสินค้า */}
       <button
         onClick={() => removeFromCart(item.id)}
-        className="text-red-500 ml-4 hover:text-red-700"
+        className="text-pink-600 ml-4 hover:text-pink-800"
         title="ลบสินค้าออกจากตะกร้า"
       >
-        &#10005;
+        <XIcon className="h-5 w-5" />
       </button>
     </div>
   );

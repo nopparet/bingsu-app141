@@ -4,12 +4,14 @@ import ProductList from "./components/ProductList";
 import Cart from "./components/Cart";
 import CartProvider from "./context/CartContext";
 
+
+
 function App() {
   return (
     <CartProvider>
-      <div className="min-h-screen bg-gray-100">
-        <header className="bg-blue-600 text-white p-4 text-center text-2xl">
-          ร้านค้าออนไลน์ของฉัน
+      <div className="min-h-screen bg-pink-100">
+      <header className="bg-pink-500 text-white p-4 text-center text-3xl font-bold shadow-md">
+          ร้านบิงซูหวานเจี๊ยบ(สำหรับซื้อทานที่บ้าน)
         </header>
         <div className="flex flex-col md:flex-row p-4">
           <div className="md:w-3/4">

@@ -6,17 +6,17 @@ const ProductItem = ({ product }) => {
   const { addToCart } = useContext(CartContext);
 
   return (
-    <div className="bg-white p-4 rounded shadow">
+    <div className="bg-white p-4 rounded shadow hover:shadow-lg transition-shadow duration-300">
       <img
         src={product.image}
-        alt={product.name}
+        alt={`รูปภาพของ ${product.name}`}
         className="w-full h-40 object-cover mb-2 rounded"
       />
-      <h3 className="text-lg font-semibold">{product.name}</h3>
-      <p className="text-blue-500">ราคา: ฿{product.price}</p>
+      <h3 className="text-lg font-semibold text-pink-700">{product.name}</h3>
+      <p className="text-pink-500">ราคา: ฿{product.price}</p>
       <button
         onClick={() => addToCart(product)}
-        className="mt-2 bg-blue-600 text-white px-3 py-1 rounded hover:bg-blue-700 transition duration-200"
+        className="mt-2 bg-pink-600 text-white px-3 py-1 rounded hover:bg-pink-700 transition-colors duration-300"
       >
         สั่งซื้อ
       </button>
